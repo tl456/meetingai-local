@@ -1,0 +1,75 @@
+# MeetingAI runtime / private data
+config.json
+secrets.json
+FIRST_RUN_PASSWORD.txt
+.meetingai_manifest.json
+
+data/
+cache/
+backups/
+updates/
+cert/
+
+# Certificates / keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.csr
+
+# Audio / meeting exports created locally
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.opus
+*.webm
+*.mp4
+*.mov
+*.mkv
+
+# Logs / backups / temp
+*.log
+*.bak
+*.tmp
+*.new
+*.default-new
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# User-edited/generated managed assets at runtime
+VERSION.json
+VERSION.txt
+web/
+prompts/
+schemas/
+migrations/
+start*.bat
+install*.bat
+reset_password.bat
+run_tests.bat
+test_meetingai.py
+
+# Environment / databases
+.env
+.env.*
+*.db
+*.sqlite
+*.sqlite3
