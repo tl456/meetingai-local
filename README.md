@@ -207,6 +207,8 @@ meetingai-local/
 
 详细检查见 [PUBLIC_RELEASE_AUDIT.md](PUBLIC_RELEASE_AUDIT.md)。
 
-## License
+## License / 开源许可
 
-当前公众包**未替你选择开源许可证**。如果计划允许他人复制、修改和再分发，请在正式公开仓库中根据你的授权意图添加 MIT、Apache-2.0 或其他合适许可证。
+MeetingAI Local 采用 **MIT License** 开源。你可以在 MIT License 条款下使用、复制、修改、合并、发布、分发、再许可及商业使用本项目。
+
+使用或再分发时请保留原始版权声明和 MIT License 许可声明。完整条款请参阅仓库根目录的 [`LICENSE`](LICENSE)。
