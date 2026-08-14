@@ -1,0 +1,79 @@
+MeetingAI v2.0.2 Validation Report
+================================
+
+Release scope
+-------------
+ASR semantic annotation visibility and review UI only. The existing sidecar semantic architecture is retained; raw transcript evidence remains immutable. Schema remains 14.
+
+Static gates
+------------
+PASS  Python py_compile
+PASS  Final embedded JavaScript node --check
+PASS  Embedded bundle ZIP CRC/testzip
+PASS  Embedded bundle == external MeetingAI_v2.0.2.bundle.zip
+PASS  VERSION.txt == 2.0.2
+PASS  VERSION.json app/version == 2.0.2
+PASS  VERSION.json config/meeting schemas == 14/14
+PASS  HTML parsed successfully
+PASS  HTML IDs: 447 total, 0 duplicates
+PASS  Meeting semantic status signal exists
+PASS  Transcript AI-assisted/raw toggle exists
+PASS  Pending-review center exists
+PASS  Corrected/uncertain/critical semantic badges are wired
+PASS  Dedicated ASR semantic settings card exists
+PASS  Audio-import semantic status summary exists
+PASS  Historical meeting semantic recheck button exists
+PASS  Semantic review/reprocess API routes exist
+PASS  Meeting Intelligence panel HTML is byte-identical to v2.0.1 baseline
+PASS  Critical Items UI therefore remains unchanged
+
+Built-in regression
+-------------------
+PASS  MeetingAI built-in Mock self-test: 40 / 40 checks
+
+Semantic simulation
+-------------------
+PASS  Reprocess queue accepted 2 imported-audio transcript segments
+PASS  Mock semantic annotations written: 2
+PASS  transcript_semantics.jsonl created
+PASS  Reprocess state completed
+PASS  transcript.jsonl byte-for-byte unchanged before/after semantic reprocess
+PASS  Normal corrected text at confidence 0.94 is eligible at threshold 0.88
+PASS  Critical amount text at confidence 0.94 is NOT substituted when critical threshold is 0.96
+PASS  Human-edited display text overrides AI semantic suggestion
+
+Compatibility simulation
+------------------------
+PASS  v2.0.1 -> v2.0.2 upgrade dry-run
+PASS  v2.0.1 -> v2.0.2 actual atomic replacement
+PASS  Schema 14 remains current; no migration required
+PASS  Upgrade backup created
+PASS  Semantic sidecar backup created
+PASS  Raw transcript remained unchanged
+PASS  Direct v2.0.0 -> v2.0.2 dry-run
+PASS  Direct v2.0.0 -> v2.0.2 actual replacement
+PASS  First v2.0.2 launch migrated config schema 13 -> 14 additively
+PASS  --doctor completed in the v2.0.0 direct-upgrade simulation
+
+Reliability notes
+-----------------
+- Semantic reprocess is an additive background task. It never rewrites transcript.jsonl.
+- On shutdown, in-progress semantic reprocess tasks are cancelled and marked interrupted rather than left as falsely-running state.
+- After process restart, stale queued/running reprocess metadata is surfaced as interrupted and can be started again.
+- Semantic status counts are calculated from the latest sidecar record per transcript id, preventing repeated rechecks from double-counting historical annotations.
+- UI falls back to raw/human display text whenever the semantic suggestion is absent, below threshold, human-marked uncertain/wrong, or manually edited.
+
+Not executed by request
+-----------------------
+- No real Ollama/OpenAI semantic quality benchmark.
+- No real GPU/CUDA model test.
+- No multi-hour audio throughput test.
+- No browser screenshot/visual automation; this release was validated statically and with Mock/state simulations only.
+
+SHA-256
+-------
+MeetingAI_v2.0.2.py
+37e1eca22900ab26537960eaf04ce6318072ba0c2622446bab782eb7f68b6bbf
+
+MeetingAI_v2.0.2.bundle.zip
+2bef5ee63d3c66b095ed19e976a6fb73ec3c70d7249923a6e17540d5f914b851

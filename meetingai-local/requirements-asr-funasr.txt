@@ -1,0 +1,4 @@
+-r requirements.txt
+# 请先手工安装与你 CPU/CUDA 环境匹配的 torch + torchaudio。
+funasr>=1.2.0
+modelscope>=1.15.0
